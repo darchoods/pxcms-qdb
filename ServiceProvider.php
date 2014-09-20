@@ -1,30 +1,30 @@
-<?php namespace Cysha\Modules\Darchoods;
+<?php namespace Cysha\Modules\QdbServer;
 
 use Illuminate\Foundation\AliasLoader;
 use Cysha\Modules\Core\BaseServiceProvider;
+use Cysha\Modules\QdbServer\Commands\InstallCommand;
+use Cysha\Modules\QdbServer as Module;
 
 class ServiceProvider extends BaseServiceProvider
 {
     public function register()
     {
-        //$this->registerOtherPackages();
+        $this->registerRepositories();
     }
 
-    private function registerOtherPackages()
+
+    public function registerRepositories()
     {
-        $serviceProviders = [
-        ];
+        $this->app->bind(
+            'Cysha\Modules\QdbServer\Repositories\Quote\RepositoryInterface',
+            'Cysha\Modules\QdbServer\Repositories\Quote\DbRepository'
+        );
 
-        foreach ($serviceProviders as $sp) {
-            $this->app->register($sp);
-        }
+        $this->app->bind(
+            'Cysha\Modules\QdbServer\Repositories\Channel\RepositoryInterface',
+            'Cysha\Modules\QdbServer\Repositories\Channel\DbRepository'
+        );
 
-        $aliases = [
-        ];
-
-        foreach ($aliases as $alias => $class) {
-            AliasLoader::getInstance()->alias($alias, $class);
-        }
     }
 
 }

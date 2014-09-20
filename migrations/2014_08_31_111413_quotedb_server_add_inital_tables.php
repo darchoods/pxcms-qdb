@@ -17,6 +17,7 @@ class QuoteDbServerAddInitalTables extends Migration
 
             $table->increments('id')->unsigned();
             $table->string('channel');
+            $table->integer('quote_count')->default(0);
         });
 
         Schema::create('quote_content', function ($table) {
@@ -24,10 +25,11 @@ class QuoteDbServerAddInitalTables extends Migration
 
             $table->increments('id')->unsigned();
             $table->integer('channel_id')->unsigned();
-            $table->integer('quote_id')->unsigned();
+            $table->integer('quote_id')->unsigned()->unique();
             $table->string('author_id');
             $table->text('content');
             $table->integer('view_count')->default(0);
+            $table->softDeletes();
 
             $table->timestamps();
         });
