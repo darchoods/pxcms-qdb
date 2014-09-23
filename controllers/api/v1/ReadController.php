@@ -42,7 +42,7 @@ class ReadController extends BaseController
         }
         $quote_id = Input::get('quote_id', false);
         if (!ctype_digit($quote_id) || $quote_id === false) {
-            return $this->sendError('Missing Post Variable (channel)');
+            return $this->sendError('Missing Post Variable (quote_id)');
         }
 
         $channel = $this->channel->getChannel($channel);
