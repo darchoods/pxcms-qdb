@@ -12,7 +12,7 @@ class DbRepository extends BaseDbRepository implements RepositoryInterface
 
     public function getChannels()
     {
-        return $this->model->orderBy('quote_count', 'desc')->get();
+        return $this->model->where('quote_count', '>', 0)->orderBy('quote_count', 'desc')->get();
     }
 
     public function getChannel($channelName)

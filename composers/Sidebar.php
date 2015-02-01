@@ -8,7 +8,7 @@ class Sidebar
         $channels = with(\App::make('Cysha\Modules\Qdb\Repositories\Channel\RepositoryInterface'))->getChannels();
 
         $channels = $channels->filter(function ($row) {
-            return ($row->quote_count > 0 || $row->channel != '#bots');
+            return ($row->channel != '#bots');
         });
 
         $view->with('qdbChannels', $channels->toArray());
