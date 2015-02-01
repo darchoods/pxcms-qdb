@@ -1,4 +1,4 @@
-<?php namespace Cysha\Modules\QdbServer\Repositories\Quote;
+<?php namespace Cysha\Modules\Qdb\Repositories\Quote;
 
 interface RepositoryInterface
 {

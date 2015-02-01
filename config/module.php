@@ -1,6 +1,6 @@
 <?php
 
 return array(
-    'name'        => 'QuoteDB Server Module',
+    'name'        => 'QuoteDB Module',
     'author'      => 'xLink (Dan Aldridge)',
 );

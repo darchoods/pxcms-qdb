@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 
-class QuoteDbServerAddInitalTables extends Migration
+class QDbAddInitalTables extends Migration
 {
 
     /**

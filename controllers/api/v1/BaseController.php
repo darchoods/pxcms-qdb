@@ -1,4 +1,4 @@
-<?php namespace Cysha\Modules\QdbServer\Controllers\Api\V1;
+<?php namespace Cysha\Modules\Qdb\Controllers\Api\V1;
 
 use Cysha\Modules\Core\Controllers\BaseApiController as BAC;
 

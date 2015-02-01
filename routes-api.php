@@ -14,6 +14,7 @@ Route::api(['version' => 'v1', 'prefix' => \Config::get('core::routes.paths.api'
             Route::post('down', ['uses' => $namespace.'\ModifyController@postVoteDown']);
         });
 
+        Route::get('channels', ['uses' => $namespace.'\ReadController@getChannels']);
         Route::post('random', ['uses' => $namespace.'\ReadController@postFindRandom']);
         Route::post('create', ['uses' => $namespace.'\ModifyController@postCreateQuote']);
     });

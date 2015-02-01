@@ -1,4 +1,4 @@
-<?php namespace Cysha\Modules\QdbServer\Repositories\Channel;
+<?php namespace Cysha\Modules\Qdb\Repositories\Channel;
 
 interface RepositoryInterface
 {

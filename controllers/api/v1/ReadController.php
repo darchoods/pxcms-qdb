@@ -1,7 +1,7 @@
-<?php namespace Cysha\Modules\QdbServer\Controllers\Api\V1;
+<?php namespace Cysha\Modules\Qdb\Controllers\Api\V1;
 
-use Cysha\Modules\QdbServer\Repositories\Quote\RepositoryInterface as QuoteRepository;
-use Cysha\Modules\QdbServer\Repositories\Channel\RepositoryInterface as ChannelRepository;
+use Cysha\Modules\Qdb\Repositories\Quote\RepositoryInterface as QuoteRepository;
+use Cysha\Modules\Qdb\Repositories\Channel\RepositoryInterface as ChannelRepository;
 use Input;
 
 class ReadController extends BaseController
@@ -25,7 +25,7 @@ class ReadController extends BaseController
             return $this->sendError('Channel cant be found.');
         }
 
-        $quote = $this->quote->getRandom($channel);
+        $quote = $this->quote->getRandomByChannel($channel, 1);
         if ($quote === false) {
             $this->sendResponse('No Quotes found.');
         }
@@ -58,6 +58,5 @@ class ReadController extends BaseController
 
         return $this->sendResponse('ok', 200, $data);
     }
-
 
 }

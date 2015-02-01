@@ -1,14 +1,15 @@
-<?php namespace Cysha\Modules\QdbServer\Controllers\Module;
+<?php namespace Cysha\Modules\Qdb\Controllers\Module;
 
 use Cysha\Modules\Darchoods\Controllers\Module\BaseController;
 
-class ApiController extends BaseController
+class ApiController extends BaseModuleController
 {
 
     public function __construct()
     {
         parent::__construct();
         $this->setDecorativeMode();
+        API::user();
     }
 
     public function getApi()

@@ -1,5 +1,5 @@
 {
     "enabled": true,
-    "provider": "Cysha\\Modules\\QdbServer\\ServiceProvider",
+    "provider": "Cysha\\Modules\\Qdb\\ServiceProvider",
     "order": 5
 }

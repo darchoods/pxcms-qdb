@@ -1,7 +1,7 @@
-<?php namespace Cysha\Modules\QdbServer\Controllers\Api\V1;
+<?php namespace Cysha\Modules\Qdb\Controllers\Api\V1;
 
-use Cysha\Modules\QdbServer\Repositories\Quote\RepositoryInterface as QuoteRepository;
-use Cysha\Modules\QdbServer\Repositories\Channel\RepositoryInterface as ChannelRepository;
+use Cysha\Modules\Qdb\Repositories\Quote\RepositoryInterface as QuoteRepository;
+use Cysha\Modules\Qdb\Repositories\Channel\RepositoryInterface as ChannelRepository;
 use Input;
 
 class ModifyController extends BaseController
@@ -30,7 +30,7 @@ class ModifyController extends BaseController
             return $this->sendError('Missing Post Variable (quote)');
         }
 
-        $channel = $this->channel->getChannel($channel);
+        $channel = $this->channel->getOrCreate($channel);
         if (empty($channel)) {
             return $this->sendError('Channel cant be found.');
         }

@@ -1,6 +1,6 @@
 <?php
 
-$namespace = 'Cysha\Modules\QdbServer\Controllers';
+$namespace = 'Cysha\Modules\Qdb\Controllers';
 
 require 'routes-admin.php';
 require 'routes-api.php';
@@ -41,14 +41,14 @@ Route::get('test', function () {
     echo \Debug::dump($quotes, '');
 });
 
-use Cysha\Modules\QdbServer\Repositories\Quote\RepositoryInterface as QuoteRepository;
-use Cysha\Modules\QdbServer\Repositories\Channel\RepositoryInterface as ChannelRepository;
+use Cysha\Modules\Qdb\Repositories\Quote\RepositoryInterface as QuoteRepository;
+use Cysha\Modules\Qdb\Repositories\Channel\RepositoryInterface as ChannelRepository;
 
 Route::get('qimport', function () {
     $directory = public_path().'/uploads';
 
-    $repoQuote = new Cysha\Modules\QdbServer\Repositories\Quote\DbRepository(new Cysha\Modules\QdbServer\Models\Quote);
-    $repoChannel = new Cysha\Modules\QdbServer\Repositories\Channel\DbRepository(new Cysha\Modules\QdbServer\Models\Channel);
+    $repoQuote = new Cysha\Modules\Qdb\Repositories\Quote\DbRepository(new Cysha\Modules\Qdb\Models\Quote);
+    $repoChannel = new Cysha\Modules\Qdb\Repositories\Channel\DbRepository(new Cysha\Modules\Qdb\Models\Channel);
 
     $file = '/#treehouse.txt';
     $contents = File::get($directory.$file);
