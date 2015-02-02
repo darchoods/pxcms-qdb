@@ -1,14 +1,12 @@
 <?php namespace Cysha\Modules\Qdb\Controllers\Module;
 
-use Cysha\Modules\Darchoods\Controllers\Module\BaseController;
-
 class ApiController extends BaseModuleController
 {
 
     public function __construct()
     {
         parent::__construct();
-        API::user();
+        \API::user();
     }
 
     public function getApi()
