@@ -7,6 +7,7 @@ use Config;
 
 class BaseModuleController extends CoreController
 {
+    public $layout = 'cols-2-right';
 
     public function __construct()
     {

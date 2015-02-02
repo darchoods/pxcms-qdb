@@ -3,9 +3,9 @@
 return [
 
     'left' => [
-        'QDB Channel List' => 'qdb::sidebar.channelList'
     ],
 
     'right' => [
+        'QDB Channel List' => 'qdb::sidebar.channelList'
     ],
 ];
