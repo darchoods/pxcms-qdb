@@ -8,12 +8,12 @@ class ApiController extends BaseModuleController
     public function __construct()
     {
         parent::__construct();
-        $this->setDecorativeMode();
         API::user();
     }
 
     public function getApi()
     {
+        $this->setDecorativeMode();
         $this->setTitle('QuoteDB API Documentation');
 
         $route = '/api/qdb';
