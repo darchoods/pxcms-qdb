@@ -29,7 +29,7 @@ class ReadController extends BaseController
         if ($quote === false) {
             $this->sendResponse('No Quotes found.');
         }
-        $data['quote'] = $quote;
+        $data['quote'] = head($quote);
 
         return $this->sendResponse('ok', 200, $data);
     }
