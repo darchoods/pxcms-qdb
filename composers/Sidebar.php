@@ -6,7 +6,7 @@ class Sidebar
     public function channelList($view)
     {
         $channels = with(\App::make('Cysha\Modules\Qdb\Repositories\Channel\RepositoryInterface'))->getChannels();
-        if (!count($channels)) {
+        if ($channels === false || !count($channels)) {
             $view->with('qdbChannels', []);
             return;
         }
