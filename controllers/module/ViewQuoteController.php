@@ -36,6 +36,25 @@ class ViewQuoteController extends BaseModuleController
             return $this->setView('errors.channel');
         }
 
+        $quotes = $this->quote->getRandomByChannel($channel, 5);
+        if ($quotes === false) {
+            $this->setTitle('Quote Not Found');
+            return $this->setView('errors.quote');
+        }
+
+        return $this->setView('quotes.channel', [
+            'channel' => $channel->transform(),
+            'quotes' => $quotes,
+        ]);
+    }
+
+    public function getByChannelInOrder($_channel)
+    {
+        $channel = $this->channel->getChannel($_channel);
+        if (empty($channel)) {
+            return $this->setView('errors.channel');
+        }
+
         $quotes = $this->quote->getQuotes($channel);
         if ($quotes === false) {
             $this->setTitle('Quote Not Found');
@@ -62,7 +81,7 @@ class ViewQuoteController extends BaseModuleController
             return $this->setView('errors.quote');
         }
 
-        $data = ['data' => [ 'quote' => $quote ]];
+        $data = ['data' => ['quote' => $quote]];
 
         $this->setTitle(sprintf('Quote#%d | %s', $_quote_id, $_channel));
         return $this->setView('quotes.single', [

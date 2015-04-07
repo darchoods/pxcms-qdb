@@ -1,3 +1,11 @@
+<?php
+    $quote['data']['quote'] = (
+        is_object($quote['data']['quote'])
+        ? $quote['data']['quote']->transform()
+        : $quote['data']['quote']
+    );
+?>
+
 <div class="well well-sm">
     <header class="row">
         <div class="col-md-12">

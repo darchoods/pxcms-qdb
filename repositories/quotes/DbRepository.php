@@ -42,7 +42,7 @@ class DbRepository extends BaseDbRepository implements RepositoryInterface
 
     public function getRandomByChannel(Qdb\Models\Channel $channel, $number=5)
     {
-        $quotes = $channel->quote()->take($number)->orderBy(DB::Raw('RAND()'))->get()->first();
+        $quotes = $channel->quote()->orderBy(DB::Raw('RAND()'))->take($number)->get();
         if ($quotes === null) {
             return false;
         }
@@ -60,14 +60,14 @@ class DbRepository extends BaseDbRepository implements RepositoryInterface
         return $quote->transform();
     }
 
-    public function getQuotes(Qdb\Models\Channel $channel)
+    public function getQuotes(Qdb\Models\Channel $channel, $number=5)
     {
-        $quotes = $channel->quote()->orderBy(DB::Raw('RAND()'))->take(5)->get();
+        $quotes = $channel->quote()->orderBy('created_at', 'asc')->paginate($number);
         if ($quotes === null) {
             return false;
         }
 
-        return $this->transformModel($quotes);
+        return ($quotes);
     }
 
 }
